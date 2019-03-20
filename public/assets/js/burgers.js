@@ -23,13 +23,13 @@ $(function()  {
     );
   });
  
-  $("#eat").on("click", function(event) {
-    var id = $(this).data("id");
+  $(".eat").on("click", function(event) {
+    var id = $(this).attr("id");
 
     var newEaten = {
-      eaten: true
+      eaten: 1
     };
-
+console.log(newEaten);
     // Send the PUT request.
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
