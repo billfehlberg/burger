@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col bg-light text-center">
+      <h1>header column</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col bg-light">
+      <h1>Eat Up!</h1>
+      <ul>
+        {{#each burgers}}
+          {{#unless this.eaten}}
+            <li>
+              {{this.id}}
+              {{this.burger_type}}
+            </li>
+            <form action="/{{this.id}}?_method=PUT" method="POST">
+              <input type="hidden" name="eaten" value="true">
+              <button class="btn-primary" id="eat" type="submit">Devour It!</button>
+            </form>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col bg-primary">
+      <h1>Already Eaten</h1>
+        {{#each burgers}}
+          {{#if eaten}}
+            <li>
+              {{this.id}}
+              {{this.burger_type}}
+            </li>
+          {{/if}}
+        {{/each}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col bg-light text-center">
+      <div class="card border border-primary">
+        <div class="card-header bg-primary text-white">
+         Can I take your order?
+        </div>
+        <!--Create/add burger form-->
+        <div class="card-body">
+          <form class="create-form">
+            <div class="form-group">
+              <label for="burger">Place order here:</label>
+              <input type="text" class="form-control" id="burger_type" placeholder="">
+            </div>
+            <button class="btn btn-primary" type="submit">Place order</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
